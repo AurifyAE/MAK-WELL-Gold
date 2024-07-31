@@ -401,15 +401,24 @@ async function showTable() {
                 metal = 'KILOBAR'
                 purity = purityInput
             } else if (weightInput === 'TTB') {
-                metal = 'TT BAR'
-                purity = purityInput
+                metal = 'TEN TOLA'
+                purity = 'BAR'
             } else if (weightInput === 'GM') {
-                metal = '22'
-                purity = 'KT'
+                metal = 'GOLD'
+                purity = purityInput
             } else {
                 metal = metalInput
                 purity = purityInput
             }
+
+            setInterval(() => {
+                var silver = silverValue
+
+                // Silver 1GM Table Value
+                document.getElementById('silverBidTd').textContent = parseFloat((parseFloat(silver) + parseFloat(silverBidSpread) || 0) * 1000).toFixed(3);
+                document.getElementById('silverAskTd').textContent = parseFloat((parseFloat(silver) + 0.5 + parseFloat(silverAskSpread) || 0) * 1000).toFixed(3);
+                console.log(parseFloat(silver));
+            }, 1000);
 
             // Create a new table row for data
             const newRow = document.createElement("tr");
