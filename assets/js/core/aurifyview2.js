@@ -271,7 +271,7 @@ async function readData() {
     // Get the UID of the authenticated user
     const uid = USER_ID;
 
-    if (!uid) {
+    if(!uid) {
         console.error('User not authenticated');
         return Promise.reject('User not authenticated');
     }
@@ -279,11 +279,16 @@ async function readData() {
     const querySnapshot = await getDocs(collection(firestore, `users/${uid}/commodities`));
     const result = [];
     querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        const timestamp = data.timestamp;
+
         result.push({
             id: doc.id,
-            data: doc.data()
+            data: doc.data(),
+            timestamp: timestamp
         });
     });
+    result.sort((a, b) => a.timestamp - b.timestamp);
     return result;
 }
 
@@ -408,6 +413,11 @@ async function showTable() {
                 purity = purityInput
             } else {
                 metal = metalInput
+                purity = purityInput
+            }
+
+            if (purityInput === '916' && weightInput === 'KG') {
+                metal = 'GOLD'
                 purity = purityInput
             }
 
