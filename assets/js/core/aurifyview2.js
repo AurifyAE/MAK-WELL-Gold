@@ -336,7 +336,7 @@ async function showTable() {
 
       if (purityInput === "916" && weightInput === "KG") {
         metal = "GOLD";
-        purity = purityInput;
+        purity = "22 KT";
       }
 
       setInterval(() => {
