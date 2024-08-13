@@ -334,7 +334,7 @@ async function showTable() {
         purity = purityInput;
       }
 
-      if (purityInput === "916" && weightInput === "KG") {
+      if (purityInput === "916" && weightInput === "GM") {
         metal = "GOLD";
         purity = "22 KT";
       }
@@ -401,17 +401,17 @@ async function showTable() {
           newRow.querySelector("#sellAED").innerText = parseFloat(
             (
               goldAskingPrice *
-                unitInput *
-                unitMultiplier *
-                (purityInput / Math.pow(10, purityInput.length)) +
+              unitInput *
+              unitMultiplier *
+              (purityInput / Math.pow(10, purityInput.length)) +
               parseFloat(sellPremium)
             ).toFixed(2)
           );
           newRow.querySelector("#buyAED").innerText = (
             goldBiddingPrice *
-              unitInput *
-              unitMultiplier *
-              (purityInput / Math.pow(10, purityInput.length)) +
+            unitInput *
+            unitMultiplier *
+            (purityInput / Math.pow(10, purityInput.length)) +
             parseFloat(buyPremium)
           ).toFixed(2);
         } else {
@@ -419,18 +419,18 @@ async function showTable() {
           const sellAEDValue = parseFloat(
             (
               goldAskingPrice *
-                unitInput *
-                unitMultiplier *
-                (purityInput / Math.pow(10, purityInput.length)) +
+              unitInput *
+              unitMultiplier *
+              (purityInput / Math.pow(10, purityInput.length)) +
               parseFloat(sellPremium)
             ).toFixed(4)
           );
           const buyAEDValue = parseInt(
             goldBiddingPrice *
-              unitInput *
-              unitMultiplier *
-              (purityInput / Math.pow(10, purityInput.length)) +
-              parseFloat(buyPremium)
+            unitInput *
+            unitMultiplier *
+            (purityInput / Math.pow(10, purityInput.length)) +
+            parseFloat(buyPremium)
           ).toFixed(0);
 
           newRow.querySelector("#sellAED").innerText =

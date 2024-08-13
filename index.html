@@ -191,60 +191,8 @@
   <div class="col-lg-12" style="display: flex; flex-direction: row; justify-content: space-between;">
 
     <!-- Column -->
-    <div class="col-lg-6" style="display: flex; flex-direction: column;">
-      <div style="display: flex; flex-direction: row; justify-content: space-between;">
-        <div>
-          <img class="logo" src="./mak-well.png" alt="" style="width: 300px; margin-top: 0px; margin-left: 0px;">
-        </div>
-
-        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-          <div style="display: flex; flex-direction: row;">
-            <span style="color: #fff; font-size: 40px; font-weight: 600;" id="hour"></span>
-            <span style="color: #fff; font-size: 40px; font-weight: 600; margin: 0px 3px;">:</span>
-            <span style="color: #fff; font-size: 40px; font-weight: 600;" id="minute"></span>
-            <span style="color: #fff; font-size: 40px; font-weight: 600; margin-left: 8px;" id="meridian"></span>
-          </div>
-          <div style="display: flex; flex-direction: row;">
-            <span style="color: #fff; font-size: 20px; font-weight: 500; margin: 0px 4px;" id="day"></span>
-            <span style="color: #fff; font-size: 20px; font-weight: 500; margin: 0px 4px;" id="date"></span>
-            <span style="color: #fff; font-size: 20px; font-weight: 500; margin: 0px 4px;" id="month"></span>
-            <span style="color: #fff; font-size: 20px; font-weight: 500; margin: 0px 4px;" id="year"></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Table -->
-      <div class="card-table" style="width: 100%;">
-        <table>
-          <thead style="margin-bottom: 0px;">
-            <tr>
-              <th colspan="2">COMMODITY</th>
-              <th>UNIT</th>
-              <th>BID (<span id="currencySymbol">AED</span>)</th>
-              <th>ASK (<span id="currencySymbol">AED</span>)</th>
-            </tr>
-            <tr id="blankTr" style="height: 15px;"></tr>
-          </thead>
-
-          <tbody id="tableBodyTV">
-            <!-- Table body content will be dynamically updated here -->
-          </tbody>
-          <tbody class="silver-table" style="display: none;">
-            <tr id="blankTr" style="height: 15px; border: none;"></tr>
-            <tr style="border: 3px solid #155244;">
-              <td style="text-align: right;">SILVER </td>
-              <td style="text-align: left; font-size:24px;" >KILOBAR</td>
-              <td>1 KG</td>
-              <td id="silverBidTd"></td>
-              <td id="silverAskTd"></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- Column -->
-    <div class="col-lg-6" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <div class="col-lg-6 mt-3"
+      style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
 
       <!-- Spot Rate -->
       <div style="display: flex; flex-direction: column; width: 100%;">
@@ -294,7 +242,7 @@
               </div>
             </div>
             <div
-              style="display: flex; flex-direction: row; justify-content: space-between; padding: 25px;  margin-top: 18px; border-radius: 0px; border: 3px solid #155244;">
+              style="display: none; flex-direction: row; justify-content: space-between; padding: 25px;  margin-top: 18px; border-radius: 0px; border: 3px solid #155244;">
               <div style="display: flex; flex-direction: row; align-items: center;">
                 <p style="font-size: 35px; color: #fff; font-weight: 600;">Silver</p>
                 <h5 style="font-size: 25px; color: #fff;">oz</h5>
@@ -320,15 +268,93 @@
         </div>
       </div>
 
+      <!-- TradingView Widget BEGIN -->
+      <div class="tradingview-widget-container mt-3">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript"
+          src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+            {
+              "width": "100%",
+                "height": "210",
+                  "symbol": "FXOPEN:XAUUSD",
+                    "interval": "D",
+                      "timezone": "Etc/UTC",
+                        "theme": "dark",
+                          "style": "1",
+                            "locale": "en",
+                              "hide_top_toolbar": true,
+                                "hide_legend": true,
+                                  "allow_symbol_change": false,
+                                    "save_image": false,
+                                      "calendar": false,
+                                        "support_host": "https://www.tradingview.com"
+            }
+          </script>
+      </div>
+      <!-- TradingView Widget END -->
+
       <!-- Carousel -->
       <div class="carousel-container mt-3">
         <img id="carouselImage" src="./assets/images/image1.jpg" alt="">
       </div>
     </div>
+
+    <!-- Column -->
+    <div class="col-lg-6" style="display: flex; flex-direction: column;">
+      <div style="display: flex; flex-direction: row; justify-content: space-between;">
+        <div>
+          <img class="logo" src="./mak-well.png" alt="" style="width: 255px; margin-top: 0px; margin-left: 0px;">
+        </div>
+
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <div style="display: flex; flex-direction: row;">
+            <span style="color: #fff; font-size: 40px; font-weight: 600;" id="hour"></span>
+            <span style="color: #fff; font-size: 40px; font-weight: 600; margin: 0px 3px;">:</span>
+            <span style="color: #fff; font-size: 40px; font-weight: 600;" id="minute"></span>
+            <span style="color: #fff; font-size: 40px; font-weight: 600; margin-left: 8px;" id="meridian"></span>
+          </div>
+          <div style="display: flex; flex-direction: row;">
+            <span style="color: #fff; font-size: 20px; font-weight: 500; margin: 0px 4px;" id="day"></span>
+            <span style="color: #fff; font-size: 20px; font-weight: 500; margin: 0px 4px;" id="date"></span>
+            <span style="color: #fff; font-size: 20px; font-weight: 500; margin: 0px 4px;" id="month"></span>
+            <span style="color: #fff; font-size: 20px; font-weight: 500; margin: 0px 4px;" id="year"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="card-table" style="width: 100%;">
+        <table>
+          <thead style="margin-bottom: 0px;">
+            <tr>
+              <th colspan="2">COMMODITY</th>
+              <th>UNIT</th>
+              <th>BID (<span id="currencySymbol">AED</span>)</th>
+              <th>ASK (<span id="currencySymbol">AED</span>)</th>
+            </tr>
+            <tr id="blankTr" style="height: 15px;"></tr>
+          </thead>
+
+          <tbody id="tableBodyTV">
+            <!-- Table body content will be dynamically updated here -->
+          </tbody>
+          <!-- <tbody class="silver-table" style="display: none;">
+            <tr id="blankTr" style="height: 15px; border: none;"></tr>
+            <tr style="border: 3px solid #155244;">
+              <td style="text-align: right;">SILVER </td>
+              <td style="text-align: left; font-size:24px;" >KILOBAR</td>
+              <td>1 KG</td>
+              <td id="silverBidTd"></td>
+              <td id="silverAskTd"></td>
+            </tr>
+          </tbody> -->
+        </table>
+      </div>
+    </div>
   </div>
 
 
-  <div class="row " style="margin-top: -15px;  margin-left: 0px;">
+  <div class="row " style="margin-top: -35px;  margin-left: 0px;">
     <div class="col-lg-12 news-card" style=" max-width: 99%;">
       <div class="news-label">
         <h3>MAK WELL GOLD</h3>
