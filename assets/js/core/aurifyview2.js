@@ -136,8 +136,8 @@ async function fetchData1() {
         color1 = "red";
         fontColor1 = "white";
       } else {
-        color1 = "white"; // Set to white if no change
-        fontColor1 = "black";
+        color1 = "#e8c6ab"; // Set to white if no change
+        fontColor1 = "#155244";
       }
 
       var color2;
@@ -149,8 +149,8 @@ async function fetchData1() {
         color2 = "red";
         fontColor2 = "white";
       } else {
-        color2 = "white"; // Set to white if no change
-        fontColor2 = "black";
+        color2 = "#e8c6ab"; // Set to white if no change
+        fontColor2 = "#155244";
       }
 
       var color3;
@@ -162,8 +162,8 @@ async function fetchData1() {
         color3 = "red";
         fontColor3 = "white";
       } else {
-        color3 = "white"; // Set to white if no change
-        fontColor3 = "black";
+        color3 = "#e8c6ab"; // Set to white if no change
+        fontColor3 = "#155244";
       }
 
       var color4;
@@ -175,8 +175,8 @@ async function fetchData1() {
         color4 = "red";
         fontColor4 = "white";
       } else {
-        color4 = "white"; // Set to white if no change
-        fontColor4 = "black";
+        color4 = "#e8c6ab"; // Set to white if no change
+        fontColor4 = "#155244";
       }
 
       element1.style.backgroundColor = color1;
@@ -208,19 +208,19 @@ async function fetchData1() {
 
     // LowLabelGold
     element = document.getElementById("lowLabelGold");
-    element.style.backgroundColor = "red";
+    element.style.backgroundColor = "";
 
     // HighLabelGold
     element = document.getElementById("highLabelGold");
-    element.style.backgroundColor = "green";
+    element.style.backgroundColor = "";
 
     // LowLabelSilver
     element = document.getElementById("lowLabelSilver");
-    element.style.backgroundColor = "red";
+    element.style.backgroundColor = "";
 
     // HighLabelSilver
     element = document.getElementById("highLabelSilver");
-    element.style.backgroundColor = "green";
+    element.style.backgroundColor = "";
   } catch (error) {
     console.error("Error fetching gold and silver values:", error);
   }
@@ -355,7 +355,7 @@ async function showTable() {
       // Create a new table row for data
       const newRow = document.createElement("tr");
       newRow.innerHTML = `
-                <td style="text-align: right;">${metal}</td>
+                <td style="text-align: center;">${metal}</td>
                 <td style="text-align: left; font-size:20px; font-weight: 600;">${purity}</td>
                 <td>${unitInput} ${weightInput}</td>
                 <td id="buyAED">0</td>
@@ -444,3 +444,6 @@ async function showTable() {
     console.error("Error reading data:", error);
   }
 }
+
+
+

@@ -184,6 +184,62 @@
       margin-left: 0px;
       object-fit: fill;
     }
+
+    .market-data {
+      width: 100%;
+      /* Adjust as needed */
+      margin-top: 50px;
+    }
+
+    .market-data-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+
+    .market-data-label {
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .market-data-value {
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .market-data-bar {
+      display: flex;
+      height: 8px;
+      border-radius: 5px;
+      overflow: hidden;
+      background-color: #E0E0E0;
+      /* Background color for the bar */
+      margin-bottom: 5px;
+    }
+
+    .buyers-bar {
+      background-color: #008080;
+      /* Color for Buyers */
+      height: 100%;
+    }
+
+    .sellers-bar {
+      background-color: #C00000;
+      /* Color for Sellers */
+      height: 100%;
+    }
+
+    .market-data-percentage {
+      text-align: center;
+      margin-top: 0px;
+    }
+
+    .market-data-change {
+      font-weight: bold;
+      font-size: 14px;
+    }
   </style>
 </head>
 
@@ -194,104 +250,34 @@
     <div class="col-lg-6 mt-3"
       style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
 
-      <!-- Spot Rate -->
-      <div style="display: flex; flex-direction: column; width: 100%;">
-        <div>
-          <div
-            style="display: flex; flex-direction: row; justify-content: space-around; align-items: center; border-radius: 0px; background-color: #155244;">
-            <div>
-              <span style="text-align: center; font-size: 30px; font-weight: 600; color: #fff;">SPOT RATE</span>
-            </div>
-            <div class="" style="display: flex; flex-direction: row;">
-              <span style="color: #fff; font-size: 30px;">BID</span>
-              <div
-                style="background-color: #021718;height: 32px;width: 32px;border: none;border-radius: 50%;  display: flex;justify-content: center;align-items: center; margin-top: 7px;">
-                <i class="fa-solid fa-dollar-sign" style="color: white;"></i>
-              </div>
-            </div>
-            <div class="" style="display: flex; flex-direction: row;">
-              <span style="color: #fff; font-size: 30px;">ASK</span>
-              <div
-                style="background-color: #021718;height: 32px;width: 32px; border: none;border-radius: 50%;  display: flex;justify-content: center;align-items: center; margin-top: 7px;">
-                <i class="fa-solid fa-dollar-sign" style="color: white;"></i>
-              </div>
-            </div>
-          </div>
-          <div style="display: flex; flex-direction: column;">
-            <div
-              style="display: flex; flex-direction: row; justify-content: space-between; padding: 25px;  margin-top: 12px; border-radius: 0px; border: 3px solid #155244;">
-              <div style="display: flex; flex-direction: row; align-items: center;">
-                <p style="font-size: 40px; color: #fff; font-weight: 600;">Gold</p>
-                <h5 style="font-size: 30px; color: #fff;">oz</h5>
-              </div>
-              <div>
-                <div class="" id="goldInputLow"
-                  style="font-size: 2.2vw; width: 180px; background-color: #fff; padding: 10px; font-weight: 600; text-align: center;">
-                </div>
-                <label class="badge badge-success label-low mt-1"
-                  style="width: 180px; font-size:21px; background-color: red;">LOW <span
-                    id="lowLabelGold">0</span></label>
-              </div>
-              <div>
-                <div class="" id="goldInputHigh"
-                  style="font-size: 2.2vw; width: 180px; background-color: #fff; padding: 10px; font-weight: 600; text-align: center;">
-                </div>
-                <label class="badge badge-success label-low mt-1"
-                  style="width: 180px; font-size:21px; background-color: green;">HIGH <span
-                    id="highLabelGold">0</span></label>
-              </div>
-            </div>
-            <div
-              style="display: none; flex-direction: row; justify-content: space-between; padding: 25px;  margin-top: 18px; border-radius: 0px; border: 3px solid #155244;">
-              <div style="display: flex; flex-direction: row; align-items: center;">
-                <p style="font-size: 35px; color: #fff; font-weight: 600;">Silver</p>
-                <h5 style="font-size: 25px; color: #fff;">oz</h5>
-              </div>
-              <div>
-                <div class="" id="silverInputLow"
-                  style="font-size: 2.2vw; width: 180px; background-color: #fff; padding: 15px; font-weight: 600; text-align: center;">
-                </div>
-                <label class="badge badge-success label-low mt-1"
-                  style="width: 180px; font-size:21px; background-color: red;">LOW <span
-                    id="lowLabelSilver">0</span></label>
-              </div>
-              <div>
-                <div class="" id="silverInputHigh"
-                  style="font-size: 2.2vw; width: 180px; background-color: #fff; padding: 15px; font-weight: 600; text-align: center;">
-                </div>
-                <label class="badge badge-success label-low mt-1"
-                  style="width: 180px; font-size:21px; background-color: green;">HIGH <span
-                    id="highLabelSilver">0</span></label>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- Table -->
+      <div class="card-table" style="width: 100%;">
+        <table>
+          <thead style="margin-bottom: 0px;">
+            <tr>
+              <th colspan="2">COMMODITY</th>
+              <th>UNIT</th>
+              <th>BID (<span id="currencySymbol">AED</span>)</th>
+              <th>ASK (<span id="currencySymbol">AED</span>)</th>
+            </tr>
+            <tr id="blankTr" style="height: 15px;"></tr>
+          </thead>
 
-      <!-- TradingView Widget BEGIN -->
-      <div class="tradingview-widget-container mt-3">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript"
-          src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-            {
-              "width": "100%",
-                "height": "210",
-                  "symbol": "FXOPEN:XAUUSD",
-                    "interval": "D",
-                      "timezone": "Etc/UTC",
-                        "theme": "dark",
-                          "style": "1",
-                            "locale": "en",
-                              "hide_top_toolbar": true,
-                                "hide_legend": true,
-                                  "allow_symbol_change": false,
-                                    "save_image": false,
-                                      "calendar": false,
-                                        "support_host": "https://www.tradingview.com"
-            }
-          </script>
+          <tbody id="tableBodyTV">
+            <!-- Table body content will be dynamically updated here -->
+          </tbody>
+          <!-- <tbody class="silver-table" style="display: none;">
+            <tr id="blankTr" style="height: 15px; border: none;"></tr>
+            <tr style="border: 3px solid #155244;">
+              <td style="text-align: right;">SILVER </td>
+              <td style="text-align: left; font-size:24px;" >KILOBAR</td>
+              <td>1 KG</td>
+              <td id="silverBidTd"></td>
+              <td id="silverAskTd"></td>
+            </tr>
+          </tbody> -->
+        </table>
       </div>
-      <!-- TradingView Widget END -->
 
       <!-- Carousel -->
       <div class="carousel-container mt-3">
@@ -322,34 +308,105 @@
         </div>
       </div>
 
-      <!-- Table -->
-      <div class="card-table" style="width: 100%;">
-        <table>
-          <thead style="margin-bottom: 0px;">
-            <tr>
-              <th colspan="2">COMMODITY</th>
-              <th>UNIT</th>
-              <th>BID (<span id="currencySymbol">AED</span>)</th>
-              <th>ASK (<span id="currencySymbol">AED</span>)</th>
-            </tr>
-            <tr id="blankTr" style="height: 15px;"></tr>
-          </thead>
-
-          <tbody id="tableBodyTV">
-            <!-- Table body content will be dynamically updated here -->
-          </tbody>
-          <!-- <tbody class="silver-table" style="display: none;">
-            <tr id="blankTr" style="height: 15px; border: none;"></tr>
-            <tr style="border: 3px solid #155244;">
-              <td style="text-align: right;">SILVER </td>
-              <td style="text-align: left; font-size:24px;" >KILOBAR</td>
-              <td>1 KG</td>
-              <td id="silverBidTd"></td>
-              <td id="silverAskTd"></td>
-            </tr>
-          </tbody> -->
-        </table>
+      <!-- Spot Rate -->
+      <div style="display: flex; flex-direction: column; width: 100%;">
+        <div>
+          <div
+            style="display: flex; flex-direction: row; justify-content: space-around; align-items: center; border-radius: 0px; background-color: #155244;">
+            <div>
+              <span style="text-align: center; font-size: 30px; font-weight: 600; color: #fff;">SPOT RATE</span>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column;">
+            <div
+              style="display: flex; flex-direction: column; justify-content: space-between; padding: 25px;  margin-top: 12px; border-radius: 0px; border: 3px solid #e8c6ab; background-color: #e8c6ab;">
+              <div style="display: flex; flex-direction: row; justify-content: space-between; padding-right: 30px;">
+                <div class="" style="display: flex; flex-direction: row;">
+                  <div style="width: 250px;"></div>
+                  <div
+                    style="background-color: #155244;height: 32px;width: 32px;border: none;border-radius: 20%;  display: flex;justify-content: center;align-items: center; margin-top: 7px;">
+                    <i class="fa-solid fa-dollar-sign" style="color: white;"></i>
+                  </div>
+                  <span style="color: #155244; font-size: 30px; font-weight: 600; margin-left: 3px;">BID</span>
+                </div>
+                <div class="" style="display: flex; flex-direction: row;">
+                  <div
+                    style="background-color: #155244;height: 32px;width: 32px; border: none;border-radius: 20%;  display: flex;justify-content: center;align-items: center; margin-top: 7px;">
+                    <i class="fa-solid fa-dollar-sign" style="color: white;"></i>
+                  </div>
+                  <span style="color: #155244; font-size: 30px; font-weight: 600; margin-left: 3px;">ASK</span>
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 10px;">
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                  <span style="font-size: 40px; color: #155244; font-weight: 600;">GOLD</span>
+                  <span style="font-size: 40px; color: #155244; font-weight: 600; margin-top: -20px;">OZ</span>
+                </div>
+                <div>
+                  <div class="" id="goldInputLow"
+                    style="font-size: 2.2vw; width: 180px; background-color: #fff; padding: 10px; font-weight: 600; text-align: center; border-radius: 10px; border: 3px solid #155244;">
+                  </div>
+                  <label class="badge badge-success label-low mt-1"
+                    style="width: 180px; font-size:21px; background-color: transparent;  border-radius: 10px; border: 2px solid #155244; color: #155244;">LOW
+                    <span id="lowLabelGold" style="color: #155244;">0</span></label>
+                </div>
+                <div>
+                  <div class="" id="goldInputHigh"
+                    style="font-size: 2.2vw; width: 180px; background-color: #fff; padding: 10px; font-weight: 600; text-align: center; border-radius: 10px; border: 3px solid #155244;">
+                  </div>
+                  <label class="badge badge-success label-low mt-1"
+                    style="width: 180px; font-size:21px; background-color: transparent; border-radius: 10px; border: 2px solid #155244; color: #155244;">HIGH
+                    <span id="highLabelGold" style="color: #155244;">0</span></label>
+                </div>
+              </div>
+            </div>
+            <div
+              style="display: none; flex-direction: row; justify-content: space-between; padding: 25px;  margin-top: 18px; border-radius: 0px; border: 3px solid #155244;">
+              <div style="display: flex; flex-direction: row; align-items: center;">
+                <p style="font-size: 35px; color: #fff; font-weight: 600;">Silver</p>
+                <h5 style="font-size: 25px; color: #fff;">oz</h5>
+              </div>
+              <div>
+                <div class="" id="silverInputLow"
+                  style="font-size: 2.2vw; width: 180px; background-color: #fff; padding: 15px; font-weight: 600; text-align: center;">
+                </div>
+                <label class="badge badge-success label-low mt-1"
+                  style="width: 180px; font-size:21px; background-color: red;">LOW <span
+                    id="lowLabelSilver">0</span></label>
+              </div>
+              <div>
+                <div class="" id="silverInputHigh"
+                  style="font-size: 2.2vw; width: 180px; background-color: #fff; padding: 15px; font-weight: 600; text-align: center;">
+                </div>
+                <label class="badge badge-success label-low mt-1"
+                  style="width: 180px; font-size:21px; background-color: green;">HIGH <span
+                    id="highLabelSilver">0</span></label>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- Buy & Sell -->
+      <div class="market-data">
+        <div class="market-data-row">
+          <span class="market-data-label">BUYERS</span>
+          <div class="market-data-percentage">
+            <span class="market-data-change" style="color: green;">0.080%</span>
+          </div>
+          <span class="market-data-value">SELLER</span>
+        </div>
+        <div class="market-data-bar">
+          <div class="buyers-bar" style="width: 81%;"></div>
+          <div class="sellers-bar" style="width: 19%;"></div>
+        </div>
+        <div class="market-data-row">
+          <span class="market-data-label">81%</span>
+          <span class="market-data-value">19%</span>
+        </div>
+      </div>
+
+
     </div>
   </div>
 
