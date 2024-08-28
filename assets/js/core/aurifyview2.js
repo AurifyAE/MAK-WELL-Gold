@@ -364,13 +364,13 @@ async function showTable() {
       // Append the new row to the table body
       tableBody.appendChild(newRow);
 
-      // Create an empty row (if not the last row)
-      if (data !== tableData[tableData.length - 1]) {
-        tableBody.insertAdjacentHTML(
-          "beforeend",
-          '<tr><td colspan="5" style="height: 3px;"></td></tr>'
-        );
-      }
+      // // Create an empty row (if not the last row)
+      // if (data !== tableData[tableData.length - 1]) {
+      //   tableBody.insertAdjacentHTML(
+      //     "beforeend",
+      //     '<tr><td colspan="5" style="height: 3px;"></td></tr>'
+      //   );
+      // }
 
       displaySpreadValues();
 
